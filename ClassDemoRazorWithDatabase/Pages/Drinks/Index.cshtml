@@ -1,0 +1,37 @@
+﻿@page
+@model ClassDemoRazorWithDatabase.Pages.Drinks.IndexModel
+@{
+}
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Navn</th>
+        <th>Alkohol</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var d in Model.Drinks)
+    {
+        <tr>
+            <td>@d.Id</td>
+            <td>@d.Name</td>
+            <td>@d.Alk</td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+<form method="get">
+<input type="submit" class="btn btn-primary" value="Ny Drink" asp-page="Create" /><br/>
+</form>
+        
+<form method="post">        
+<input type="submit" class="btn btn-success" value="Sorter" asp-page-handler="" /> <br />
+<input type="submit" class="btn btn-success" value="Sorter Navn" asp-page-handler="SortName" /><br />
+<input type="submit" class="btn btn-success" value="Sorter Navn Reverse" asp-page-handler="SortNameDB" /><br />
+
+</form>
